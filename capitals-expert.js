@@ -232,7 +232,11 @@ function getRandomIndex() {
 
 function updateCard() {
     cardFront.textContent = flashcards[currentCardIndex].question;
-    cardBack.textContent = flashcards[currentCardIndex].answer;
+    cardBack.textContent = '';
+    // Set the new answer after 1 second delay
+    setTimeout(() => {
+        cardBack.textContent = flashcards[currentCardIndex].answer;
+    }, 1000);
     const cardInner = flashcard.querySelector('.card-inner');
     cardInner.classList.remove('is-flipped');
     cardBack.classList.remove('show-answer');
